@@ -138,8 +138,15 @@ public class MachineStage implements AdventureStage {
      * the elementwise max is {1, 20, 5}, which sums to 26.
      */
     public static int sumOfElementwiseMax(int[] a, int[] b) {
-        int[] maxes = arrayMax(a, b);
-        int sumofMaxes = arraySum(maxes);
+        int[] c = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > b[i]) {
+                c[i] = a[i];
+            } else {
+                c[i] = b[i];
+            }
+        }
+        int sumofMaxes = arraySum(c);
         return sumofMaxes;
     }
 }

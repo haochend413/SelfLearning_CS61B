@@ -101,6 +101,7 @@ public class Model {
      * Maximum valid value is given by this.MAX_PIECE. Note that
      * given a Tile object t, we get its value with t.value().
      */
+    //DONE
     public boolean maxTileExists() {
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board.size(); j++) {
@@ -167,12 +168,17 @@ public class Model {
                 } else {
                     if (myValue == board.tile(x, i + 1).value() && !board.tile(x, i + 1).wasMerged()) {
                         targetY++;
+                        //update score
                         score += board.tile(x, i + 1).value() * 2;
                     }
                     break;
                 }
             }
-            board.move(x, targetY, currTile);
+            if (targetY != y) {
+                board.move(x, targetY, currTile);
+            }
+
+
         }
     }
 
